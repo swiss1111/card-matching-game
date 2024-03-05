@@ -18,9 +18,9 @@ export default function DeckSizeDropDown({onSelect, size}: DeckSizeDropDownProps
                     }}
                 >
                     {createDeckSizesArray().map((deckSize) => (
-                    <option key={deckSize} value={deckSize}>
-                        {deckSize}
-                    </option>
+                        <option key={deckSize} value={deckSize}>
+                            {deckSize}
+                        </option>
                     ))}
                 </select>
             </div>
