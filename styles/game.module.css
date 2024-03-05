@@ -1,0 +1,9 @@
+.centerSectionContainer {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.centerSectionButton {
+    margin-left: 5px;
+}
