@@ -1,6 +1,6 @@
 import Layout from "../components/layout/layout";
 
-export default function Game() {
+export default function Size() {
     return (
         <Layout>
             <div>
