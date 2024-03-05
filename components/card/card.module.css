@@ -37,6 +37,11 @@
     transform: rotateY(180deg);
 }
 
+.card.cardFound .flipCardInner {
+    background-color: transparent;
+    box-shadow: none;
+}
+
 .flipCardFront, .flipCardBack {
     position: absolute;
     padding: 10px;
