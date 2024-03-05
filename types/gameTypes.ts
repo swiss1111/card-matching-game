@@ -23,6 +23,7 @@ export type GameTableProps = {
 export type ButtonProps = {
     onClick: () => void
     title: string
+    style?: string
 }
 
 export type DeckSizeDropDownProps = {

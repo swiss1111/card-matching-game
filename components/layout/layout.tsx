@@ -31,7 +31,7 @@ export default function Layout({children, home, centerSection}: LayoutProps) {
                 <div className={styles.rightSection}>
                 </div>
             </header>
-            <main>{children}</main>
+            <main className={styles.mainContainer}>{children}</main>
             <footer>
                 {!home && (
                     <div className={styles.backToHome}>

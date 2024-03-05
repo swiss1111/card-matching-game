@@ -16,9 +16,11 @@
   align-items: center;
   flex: 1;
 }
+
 .leftSection {
   flex: 1;
 }
+
 .rightSection {
   flex: 1;
 }
@@ -29,6 +31,10 @@
 
 .headerLogo {
   margin-right: 10px;
+}
+
+.mainContainer {
+  text-align: center;
 }
 
 .backToHome {

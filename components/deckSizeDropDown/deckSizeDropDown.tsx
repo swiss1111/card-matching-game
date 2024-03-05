@@ -14,6 +14,7 @@ export default function DeckSizeDropDown({onSelect, size}: DeckSizeDropDownProps
                     onChange={(e) => {
                         onSelect(Number(e.target.value));
                     }}
+                    className={styles.select}
                 >
                     {createDeckSizesArray().map((deckSize) => (
                         <option key={deckSize} value={deckSize}>
