@@ -6,6 +6,7 @@
 .controlPanel {
     display: flex;
     margin: 10px 0;
+    height: 68px;
 }
 
 .leftSection {
@@ -58,6 +59,13 @@
     font-size: 15px;
     font-weight: 600;
     text-transform: uppercase;
+}
+
+.table {
+    margin: 5px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .row {

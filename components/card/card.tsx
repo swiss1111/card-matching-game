@@ -12,15 +12,20 @@ export default function Card({onClick, card}: CardProps) {
                     onClick(card)
                 }
             }}>
-            {
-                card.condition !== "hidden" && (<Image
-                    width={100}
-                    height={100}
-                    className={styles.headerLogo}
-                    src={card.image}
-                    alt={card.image}
-                />)
-            }
+            <div className={styles.flipCardInner}>
+                <div className={styles.flipCardFront}>
+
+                </div>
+                <div className={styles.flipCardBack}>
+                    <Image
+                        width={100}
+                        height={100}
+                        className={styles.headerLogo}
+                        src={card.image}
+                        alt={card.image}
+                    />
+                </div>
+            </div>
         </button>
     )
 }

@@ -1,9 +1,10 @@
 .card {
     width: 120px;
     height: 120px;
-    padding: 10px;
+    padding: 0;
     border-radius: 10px;
-    background-color: white;
+    margin: 10px;
+    border: 0;
 }
 
 .cardHidden {
@@ -16,4 +17,40 @@
 
 .cardFound {
 
+}
+
+
+.flipCardInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    background-color: white;
+    box-shadow: 2px 2px 5px #b2b2b2;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.card.cardSelected .flipCardInner, .card.cardFound .flipCardInner {
+    transform: rotateY(180deg);
+}
+
+.flipCardFront, .flipCardBack {
+    position: absolute;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flipCardFront {
+
+}
+
+.flipCardBack {
+    color: white;
+    transform: rotateY(180deg);
 }
