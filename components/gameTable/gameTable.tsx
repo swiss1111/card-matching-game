@@ -13,6 +13,7 @@ export default function GameTable({size}: GameTableProps) {
 
     useEffect(() => {
         createGame();
+        setSteps(0);
     }, [size])
 
     function resetGame() {
