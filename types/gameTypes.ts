@@ -29,6 +29,7 @@ export type ButtonProps = {
 export type DeckSizeDropDownProps = {
     onSelect: (size: number) => void
     size: number
+    horizontal?: boolean
 }
 
 export type LayoutProps = {

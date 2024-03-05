@@ -4,9 +4,9 @@ import {DeckSizeDropDownProps} from "../../types/gameTypes";
 
 
 
-export default function DeckSizeDropDown({onSelect, size}: DeckSizeDropDownProps) {
+export default function DeckSizeDropDown({onSelect, size, horizontal}: DeckSizeDropDownProps) {
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${horizontal && styles.horizontalContainer}`}>
             <div className={styles.label}>Deck Size:</div>
             <div>
                 <select

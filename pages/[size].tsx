@@ -4,6 +4,7 @@ import GameTable from "../components/gameTable/gameTable";
 import {ReactNode, useEffect, useState} from "react";
 import DeckSizeDropDown from "../components/deckSizeDropDown/deckSizeDropDown";
 import Button from "../components/button/button";
+import styles from "../styles/game.module.css"
 
 export default function Size() {
     const router = useRouter();
@@ -30,9 +31,9 @@ export default function Size() {
 
     function centerSection():ReactNode {
         return (
-            <div>
-                <DeckSizeDropDown size={deckSize} onSelect={changeDeckSize}/>
-                <Button onClick={restart} title="Restart" />
+            <div className={styles.centerSectionContainer}>
+                <DeckSizeDropDown size={deckSize} onSelect={changeDeckSize} horizontal/>
+                <Button onClick={restart} title="Start new game" style={styles.centerSectionButton}/>
             </div>
         )
     }
