@@ -8,7 +8,6 @@ import {checkAndSetBestTry, getBestTry} from "../../utils/localStorageUtils";
 
 export default function GameTable({size}: GameTableProps) {
     const [cardArray, setCardArray] = useState([] as CardType[]);
-    const [cardTable, setCardTable] = useState([] as CardType[][]);
     const [steps, setSteps] = useState(0);
 
     useEffect(() => {
@@ -23,9 +22,7 @@ export default function GameTable({size}: GameTableProps) {
 
     function createGame() {
         if (size) {
-            const [cardShuffledArray, table] = createCardSortedArray(size);
-            setCardArray(cardShuffledArray);
-            setCardTable(table);
+            setCardArray(createCardSortedArray(size));
         }
     }
 
@@ -66,7 +63,7 @@ export default function GameTable({size}: GameTableProps) {
                 break;
         }
 
-        setCardTable([...cardTable]);
+        setCardArray([...cardArray]);
 
         checkWinner();
     }
@@ -90,14 +87,8 @@ export default function GameTable({size}: GameTableProps) {
             </div>
             <div className={styles.table}>
                 {
-                    cardTable.map((row, rowIndex) => (
-                        <div className={styles.row} key={`row-${rowIndex}`}>
-                            {
-                                row.map((card, cardIndex) => (
-                                    <Card card={card} onClick={cardClick} key={`card-${card.typeId}-${cardIndex}`}/>
-                                ))
-                            }
-                        </div>
+                    cardArray.map((card, index) => (
+                        <Card card={card} onClick={cardClick} key={`card-${card.typeId}-${index}`}/>
                     ))
                 }
             </div>

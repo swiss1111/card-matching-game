@@ -64,8 +64,9 @@
 .table {
     margin: 5px 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .row {

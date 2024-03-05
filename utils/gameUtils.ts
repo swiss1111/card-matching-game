@@ -80,20 +80,6 @@ export function createCardArray(size = 6): Card[] {
     return result;
 }
 
-export function createCardSortedArray(size = 6): [cardShuffledArray:Card[], table:Card[][]]  {
-    const table: Card[][] = [];
-
-    const cardShuffledArray = shuffle(createCardArray(size));
-
-    let i = 5;
-    while ( i > 1 && !(size%i==0) ) {
-        i = i-1;
-    }
-
-    for (let j = 0; j < cardShuffledArray.length; j += i) {
-        const chunk = cardShuffledArray.slice(j, j + i);
-        table.push(chunk);
-    }
-
-    return [cardShuffledArray, table];
+export function createCardSortedArray(size = 6):Card[]  {
+    return shuffle(createCardArray(size));
 }
