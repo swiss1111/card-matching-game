@@ -17,7 +17,16 @@
   flex: 1;
 }
 
-.leftSection {
+.headerHomeLink {
+  display: flex;
+  align-items: center;
+}
+
+.headerHomeLink:hover {
+  text-decoration: none;
+}
+
+.centerSection {
   flex: 1;
 }
 

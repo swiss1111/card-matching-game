@@ -7,7 +7,7 @@ import {LayoutProps} from "../../types/gameTypes";
 
 export const siteTitle = 'Card matching game';
 
-export default function Layout({children, home, centerSection}: LayoutProps) {
+export default function Layout({children, centerSection}: LayoutProps) {
     return (
         <div className={styles.container}>
             <Head>
@@ -16,14 +16,16 @@ export default function Layout({children, home, centerSection}: LayoutProps) {
             </Head>
             <header className={styles.header}>
                 <div className={styles.leftSection}>
-                    <Image
-                        width={65}
-                        height={65}
-                        className={styles.headerLogo}
-                        src="/images/splendex.png"
-                        alt="logo"
-                    />
-                    <h1 className={styles.headerTitle}>splendex</h1>
+                    <Link href="/" className={styles.headerHomeLink}>
+                        <Image
+                            width={65}
+                            height={65}
+                            className={styles.headerLogo}
+                            src="/images/splendex.png"
+                            alt="logo"
+                        />
+                        <h1 className={styles.headerTitle}>splendex</h1>
+                    </Link>
                 </div>
                 <div className={styles.centerSection}>
                     {centerSection}
@@ -32,13 +34,6 @@ export default function Layout({children, home, centerSection}: LayoutProps) {
                 </div>
             </header>
             <main className={styles.mainContainer}>{children}</main>
-            <footer>
-                {!home && (
-                    <div className={styles.backToHome}>
-                        <Link href="/">Back</Link>
-                    </div>
-                )}
-            </footer>
         </div>
     )
 }

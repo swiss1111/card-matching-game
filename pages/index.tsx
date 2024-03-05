@@ -19,7 +19,7 @@ export default function Game() {
     }
 
     return (
-        <Layout home>
+        <Layout>
             <h2 className={styles.landingPageTitle}>Splendex Memory Game</h2>
             <DeckSizeDropDown size={deckSize} onSelect={changeDeckSize}/>
             <Button onClick={newGame} title="Start new game" style={styles.landingNewGame}/>

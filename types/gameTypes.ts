@@ -34,6 +34,5 @@ export type DeckSizeDropDownProps = {
 
 export type LayoutProps = {
     children: React.ReactNode
-    home?: boolean
     centerSection?: ReactNode
 }
