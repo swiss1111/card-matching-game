@@ -71,13 +71,15 @@ export default function GameTable({size}: GameTableProps) {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <div className={styles.controlPanel}>
                 <div className={styles.leftSection}>
-                    {steps}
+                    <span className={styles.label}>Current tries:</span>
+                    <span className={styles.steps}>{steps}</span>
                 </div>
                 <div className={styles.centerSection}>
-                    {getBestTry(size)}
+                    <span className={styles.label}>Best</span>
+                    <div className={styles.bestTries}>{getBestTry(size)}</div>
                 </div>
                 <div className={styles.rightSection}>
                     <button onClick={resetGame} className={styles.resetButton}>
