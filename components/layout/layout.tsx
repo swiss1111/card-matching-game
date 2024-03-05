@@ -1,16 +1,11 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
-import React, {ReactNode} from "react";
+import React from "react";
 import Image from 'next/image'
+import {LayoutProps} from "../../types/gameTypes";
 
 export const siteTitle = 'Card matching game';
-
-interface LayoutProps {
-    children: React.ReactNode
-    home?: boolean
-    centerSection?: ReactNode
-}
 
 export default function Layout({children, home, centerSection}: LayoutProps) {
     return (

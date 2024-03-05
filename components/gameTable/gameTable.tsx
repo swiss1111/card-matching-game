@@ -1,5 +1,4 @@
 import styles from './gameTable.module.css'
-import {useRouter} from "next/router";
 import {createCardSortedArray} from "../../utils/gameUtils";
 import React, {useEffect, useState} from "react";
 import Card from "../card/card";
@@ -7,14 +6,18 @@ import {GameTableProps, Card as CardType} from "../../types/gameTypes";
 import {toast} from "react-toastify";
 
 export default function GameTable({size}: GameTableProps) {
-    const router = useRouter();
-
     const [cardArray, setCardArray] = useState([] as CardType[]);
     const [cardTable, setCardTable] = useState([] as CardType[][]);
+    const [steps, setSteps] = useState(0);
 
     useEffect(() => {
         createGame();
     }, [size])
+
+    function resetGame() {
+        createGame();
+        setSteps(0);
+    }
 
     function createGame() {
         if (size) {
@@ -41,18 +44,22 @@ export default function GameTable({size}: GameTableProps) {
         const selectedCardArray = cardArray.filter(card => card.condition === "selected");
 
         switch (selectedCardArray.length) {
-            case 2:
-                selectedCardArray.forEach(card => card.condition = "hidden");
             case 0:
                 card.condition = "selected";
                 break;
             case 1:
+                setSteps(steps+1);
                 if (card.typeId === selectedCardArray[0].typeId) {
                     card.condition = "found";
                     selectedCardArray[0].condition = "found";
                 } else {
                     card.condition = "selected";
                 }
+                break;
+            case 2:
+                selectedCardArray.forEach(card => card.condition = "hidden");
+                card.condition = "selected";
+                break;
         }
 
         setCardTable([...cardTable]);
@@ -63,7 +70,7 @@ export default function GameTable({size}: GameTableProps) {
     return (
         <div>
             <div className={styles.controlPanel}>
-                {size}
+                {steps}
             </div>
             <div className={styles.table}>
                 {

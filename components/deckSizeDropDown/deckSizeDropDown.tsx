@@ -1,10 +1,8 @@
 import styles from './deckSizeDropDown.module.css'
 import {createDeckSizesArray} from "../../utils/gameUtils";
+import {DeckSizeDropDownProps} from "../../types/gameTypes";
 
-type DeckSizeDropDownProps = {
-    onSelect: (size: number) => void
-    size: number
-}
+
 
 export default function DeckSizeDropDown({onSelect, size}: DeckSizeDropDownProps) {
     return (
@@ -12,7 +10,7 @@ export default function DeckSizeDropDown({onSelect, size}: DeckSizeDropDownProps
             <div className={styles.label}>Deck Size:</div>
             <div>
                 <select
-                    value={size}
+                    value={size || 6}
                     onChange={(e) => {
                         onSelect(Number(e.target.value));
                     }}

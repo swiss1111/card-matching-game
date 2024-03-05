@@ -1,9 +1,5 @@
 import styles from './button.module.css'
-
-interface ButtonProps {
-    onClick: () => void
-    title: string
-}
+import {ButtonProps} from "../../types/gameTypes";
 
 export default function Button({onClick, title}: ButtonProps) {
     return (
