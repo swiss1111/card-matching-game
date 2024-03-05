@@ -4,6 +4,7 @@ import React, {useEffect, useState} from "react";
 import Card from "../card/card";
 import {GameTableProps, Card as CardType} from "../../types/gameTypes";
 import {toast} from "react-toastify";
+import {checkAndSetBestTry, getBestTry} from "../../utils/localStorageUtils";
 
 export default function GameTable({size}: GameTableProps) {
     const [cardArray, setCardArray] = useState([] as CardType[]);
@@ -37,6 +38,8 @@ export default function GameTable({size}: GameTableProps) {
                 type: 'success',
                 position: 'bottom-right'
             });
+
+            checkAndSetBestTry(size, steps + 1);
         }
     }
 
@@ -48,7 +51,7 @@ export default function GameTable({size}: GameTableProps) {
                 card.condition = "selected";
                 break;
             case 1:
-                setSteps(steps+1);
+                setSteps(steps + 1);
                 if (card.typeId === selectedCardArray[0].typeId) {
                     card.condition = "found";
                     selectedCardArray[0].condition = "found";
@@ -70,7 +73,17 @@ export default function GameTable({size}: GameTableProps) {
     return (
         <div>
             <div className={styles.controlPanel}>
-                {steps}
+                <div className={styles.leftSection}>
+                    {steps}
+                </div>
+                <div className={styles.centerSection}>
+                    {getBestTry(size)}
+                </div>
+                <div className={styles.rightSection}>
+                    <button onClick={resetGame} className={styles.resetButton}>
+                        Restart
+                    </button>
+                </div>
             </div>
             <div className={styles.table}>
                 {

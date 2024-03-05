@@ -1,13 +1,4 @@
-type Card = {
-    typeId: number
-    image: string
-    condition: "hidden" | "selected" | "found",
-}
-
-type CardType = {
-    id: number
-    image: string
-}
+import {Card, CardType,} from "../types/gameTypes";
 
 const cardTypes: CardType[] = [
     {

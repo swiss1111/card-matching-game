@@ -6,6 +6,11 @@ export type Card = {
     condition: "hidden" | "selected" | "found",
 }
 
+export type CardType = {
+    id: number
+    image: string
+}
+
 export type CardProps = {
     onClick: (card: Card) => void
     card: Card
