@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from './layout.module.css'
 import Link from 'next/link'
-import React from "react";
+import React, {ReactNode} from "react";
 import Image from 'next/image'
 
 export const siteTitle = 'Card matching game';
@@ -9,9 +9,10 @@ export const siteTitle = 'Card matching game';
 interface LayoutProps {
     children: React.ReactNode
     home?: boolean
+    centerSection?: ReactNode
 }
 
-export default function Layout({children, home}: LayoutProps) {
+export default function Layout({children, home, centerSection}: LayoutProps) {
     return (
         <div className={styles.container}>
             <Head>
@@ -28,6 +29,11 @@ export default function Layout({children, home}: LayoutProps) {
                         alt="logo"
                     />
                     <h1 className={styles.headerTitle}>splendex</h1>
+                </div>
+                <div className={styles.centerSection}>
+                    {centerSection}
+                </div>
+                <div className={styles.rightSection}>
                 </div>
             </header>
             <main>{children}</main>

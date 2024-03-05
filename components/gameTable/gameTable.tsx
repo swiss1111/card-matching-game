@@ -4,6 +4,7 @@ import {createCardSortedArray} from "../../utils/gameUtils";
 import React, {useEffect, useState} from "react";
 import Card from "../card/card";
 import {GameTableProps, Card as CardType} from "../../types/gameTypes";
+import {toast} from "react-toastify";
 
 export default function GameTable({size}: GameTableProps) {
     const router = useRouter();
@@ -27,7 +28,12 @@ export default function GameTable({size}: GameTableProps) {
         const notHiddenArray = cardArray.filter(card => card.condition !== "hidden");
 
         if (cardArray.length === notHiddenArray.length) {
-            alert("nyert");
+            toast("Winner", {
+                hideProgressBar: true,
+                autoClose: 2000,
+                type: 'success',
+                position: 'bottom-right'
+            });
         }
     }
 
